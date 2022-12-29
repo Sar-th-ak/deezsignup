@@ -43,6 +43,8 @@ app.post("/", function (req, res) {
 
     const request = https.request(url, options, function (response) {
 
+        console.log(response.statusCode);
+
         if (response.statusCode === 200) {
             res.sendFile(__dirname + "/success.html");
         }
@@ -63,10 +65,9 @@ app.post("/failure", function (req, res) {
     res.redirect("/");
 });
 
-const port = process.env.PORT || 3030;
 
-app.listen(port, function () {
-    console.log("server is running on port " + port);
+app.listen(process.env.PORT || 3030, function () {
+    console.log("server is running on port ");
 });
 
 
